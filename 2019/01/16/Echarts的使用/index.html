@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Echarts的使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自定义tooltip显示特定的数据1234567891011121314tooltip: &amp;#123;  trigger: &apos;axis&apos;,  formatter: function (params) &amp;#123;    var html = &apos;&amp;lt;div&amp;gt;&apos; + params[0].name + &apos;&amp;lt;/div&amp;gt;&apos;;    for(var i = 0; i &amp;lt; param">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Echarts的使用">
+<meta property="og:url" content="http://yoursite.com/2019/01/16/Echarts的使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="自定义tooltip显示特定的数据1234567891011121314tooltip: &amp;#123;  trigger: &apos;axis&apos;,  formatter: function (params) &amp;#123;    var html = &apos;&amp;lt;div&amp;gt;&apos; + params[0].name + &apos;&amp;lt;/div&amp;gt;&apos;;    for(var i = 0; i &amp;lt; param">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/01/16/Echarts的使用/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/16/Echarts的使用/2.png">
+<meta property="og:updated_time" content="2019-01-16T08:04:59.197Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Echarts的使用">
+<meta name="twitter:description" content="自定义tooltip显示特定的数据1234567891011121314tooltip: &amp;#123;  trigger: &apos;axis&apos;,  formatter: function (params) &amp;#123;    var html = &apos;&amp;lt;div&amp;gt;&apos; + params[0].name + &apos;&amp;lt;/div&amp;gt;&apos;;    for(var i = 0; i &amp;lt; param">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/16/Echarts的使用/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Echarts的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/16/Echarts的使用/" class="article-date">
+  <time datetime="2019-01-16T06:37:59.000Z" itemprop="datePublished">2019-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Echarts的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义tooltip显示特定的数据"><a href="#自定义tooltip显示特定的数据" class="headerlink" title="自定义tooltip显示特定的数据"></a>自定义tooltip显示特定的数据</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tooltip: &#123;</span><br><span class="line">  trigger: <span class="string">'axis'</span>,</span><br><span class="line">  formatter: <span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> html = <span class="string">'&lt;div&gt;'</span> + params[<span class="number">0</span>].name + <span class="string">'&lt;/div&gt;'</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; params.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> color = params[i].color;</span><br><span class="line">      <span class="keyword">var</span> span = <span class="string">`&lt;span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:<span class="subst">$&#123;color&#125;</span>;"&gt;&lt;/span&gt;`</span></span><br><span class="line">      <span class="keyword">if</span> (params[i].data !== <span class="string">'-'</span>) &#123; <span class="comment">// 如果数据的值为'-'就不显示</span></span><br><span class="line">        html += <span class="string">'&lt;div&gt;'</span> + span + params[i].seriesName + <span class="string">':'</span> + params[i].data + <span class="string">'&lt;/div&gt;'</span></span><br><span class="line">      &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> html;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/16/Echarts的使用/1.png" alt="例子"><br><img src="/2019/01/16/Echarts的使用/2.png" alt="例子"></p>
+<h2 id="样式修改"><a href="#样式修改" class="headerlink" title="样式修改"></a>样式修改</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">  yAxis: &#123;</span><br><span class="line">    type: <span class="string">'value'</span>,</span><br><span class="line">    axisLine: &#123;</span><br><span class="line">      lineStyle: &#123;</span><br><span class="line">        color: <span class="string">'#000000'</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    splitLine: &#123;</span><br><span class="line">      lineStyle: &#123;</span><br><span class="line">        type: <span class="string">'dashed'</span>  <span class="comment">// 改变轴线的样式</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  series: [&#123;</span><br><span class="line">    name: <span class="string">'SELL IN实绩'</span>,</span><br><span class="line">    type: <span class="string">'line'</span>,</span><br><span class="line">    smooth: <span class="literal">true</span>, <span class="comment">// 折线拐角变圆滑</span></span><br><span class="line">    data: [<span class="number">2888.2</span>, <span class="number">2443.3</span>, <span class="number">4506.8</span>, <span class="number">8040.6</span>, <span class="number">763.6</span>, <span class="number">619.5</span>, <span class="number">1716.1</span>, <span class="number">1373.6</span>, <span class="number">3752.1</span>, <span class="number">739.5</span>, <span class="number">651.6</span>, <span class="number">680.9</span>],</span><br><span class="line">    itemStyle: &#123;</span><br><span class="line">      normal: &#123;</span><br><span class="line">        color: <span class="string">'#0464eb'</span>, <span class="comment">// 改变折线点的颜色</span></span><br><span class="line">        lineStyle: &#123;</span><br><span class="line">          color: <span class="string">'#8cd5c2'</span> <span class="comment">// 改变折线颜色</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    areaStyle: &#123;</span><br><span class="line">      normal: &#123;</span><br><span class="line">        color: <span class="string">'red'</span> <span class="comment">// 改变区域颜色</span></span><br><span class="line">        opacity: <span class="string">'.1'</span> <span class="comment">// 透明度</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/16/Echarts的使用/" data-id="cjqyvzrjw00027kvh028t0elx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/29/ie兼容写法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ie兼容写法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/16/Echarts的使用/">Echarts的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/ie兼容写法/">ie兼容写法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/fetch/">fetch</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/21/插件/">插件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
